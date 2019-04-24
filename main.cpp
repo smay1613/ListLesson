@@ -57,7 +57,9 @@ void investigateAccessOperations(const std::list<std::string>& data)
     std::cout << "First element: " << data.front() << std::endl; // read only access to the first element
     std::cout << "Last element: " << data.back() << std::endl; // read only access to the last element
 
-    std::cout << *std::next(data.begin(), 2) << std::endl;
+    auto start = data.begin();
+    std::advance(start, 2); // or std::next
+    std::cout << *start << std::endl;
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
@@ -75,7 +77,6 @@ void investigateModifiers(std::list<std::string>& data)
         data.push_back(fileName); // add one element to the end
 
         std::cout << "Appended [" << i + 1<< "]/[" << filesCount << "] " << std::endl;
-        std::cout << "File list size: " << data.size() << std::endl;
     }
 
     std::cout << std::endl;
@@ -87,7 +88,6 @@ void investigateModifiers(std::list<std::string>& data)
         someData.emplace_back(i); // in-place adding one element to the end
 
         std::cout << "Emplaced [" << i + 1 << "]/[" << someSize << "] " << std::endl;
-        std::cout << "File list size: " << someData.size() << std::endl;
     }
 
     std::cout << std::endl;
@@ -99,7 +99,6 @@ void investigateModifiers(std::list<std::string>& data)
         someData2.push_back(someObject); // add one element to the end
 
         std::cout << "Pushed [" << i + 1 << "]/[" << someSize << "] " << std::endl;
-        std::cout << "Some data 2 size: " << someData2.size() << std::endl;
     }
 
     std::cout << std::endl;
@@ -109,7 +108,6 @@ void investigateModifiers(std::list<std::string>& data)
         data.pop_back(); // remove one element at the end
 
         std::cout << "Popped [" << i + 1 << "]/[" << filesCount / 2 << "] " << std::endl;
-        std::cout << "File list size: " << data.size() << std::endl;
     }
 
     std::cout << std::endl;
