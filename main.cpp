@@ -138,7 +138,9 @@ void investigateModifiers(std::list<std::string>& data)
     newDiscoverage.swap(oldDiscoverage); // exchanges content
     printList(oldDiscoverage);
 
-    oldDiscoverage.erase(oldDiscoverage.begin()); // removes first element
+    auto iterator = oldDiscoverage.begin();
+    std::advance(iterator, 1);
+    oldDiscoverage.erase(iterator); // removes element
     std::cout << "After erasing first element old discoverage is: " << std::endl;
     printList(oldDiscoverage);
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
